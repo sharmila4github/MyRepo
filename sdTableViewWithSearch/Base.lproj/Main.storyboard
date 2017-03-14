@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,82 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Your Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6VN-CX-gF4">
+                                <rect key="frame" x="50" y="70" width="430" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ctx-hQ-kd8"/>
+                                    <action selector="searchAction:" destination="BYZ-38-t0r" eventType="editingChanged" id="n7H-Wb-qRQ"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ec-Of-gmY">
+                                <rect key="frame" x="50" y="120" width="430" height="430"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mycell" rowHeight="124" id="iMe-w6-rur" customClass="myTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="430" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iMe-w6-rur" id="tMZ-gl-Cay">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="agl-Pz-K6n">
+                                                    <rect key="frame" x="8" y="8" width="424" height="107"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOg-i7-UE5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Contact No" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOL-HH-jok">
+                                                            <rect key="frame" x="205" y="0.0" width="219" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="agl-Pz-K6n" firstAttribute="leading" secondItem="tMZ-gl-Cay" secondAttribute="leadingMargin" id="Hlo-pp-bh0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="agl-Pz-K6n" secondAttribute="bottom" id="bGv-Sz-gUD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="agl-Pz-K6n" secondAttribute="trailing" constant="-10" id="by7-W2-I22"/>
+                                                <constraint firstItem="agl-Pz-K6n" firstAttribute="top" secondItem="tMZ-gl-Cay" secondAttribute="topMargin" id="nEp-1x-SMW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameText" destination="kOg-i7-UE5" id="jsx-vx-DMp"/>
+                                            <outlet property="phoneText" destination="JOL-HH-jok" id="6FD-CG-chK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="FA2-ts-pip"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dU0-r0-POA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4ec-Of-gmY" firstAttribute="leading" secondItem="6VN-CX-gF4" secondAttribute="leading" id="Do9-XE-kjn"/>
+                            <constraint firstItem="4ec-Of-gmY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Mrl-qX-qft"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ec-Of-gmY" secondAttribute="trailing" constant="100" id="iDL-vs-AvR"/>
+                            <constraint firstItem="4ec-Of-gmY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="m6P-ab-N8g"/>
+                            <constraint firstItem="4ec-Of-gmY" firstAttribute="width" secondItem="6VN-CX-gF4" secondAttribute="width" id="o1K-Jx-77R"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4ec-Of-gmY" secondAttribute="bottom" constant="50" id="qpz-o3-zcS"/>
+                            <constraint firstItem="4ec-Of-gmY" firstAttribute="top" secondItem="6VN-CX-gF4" secondAttribute="bottom" constant="20" id="v16-rB-5Ll"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myTableView" destination="4ec-Of-gmY" id="fvB-38-e7B"/>
+                        <outlet property="searchText" destination="6VN-CX-gF4" id="ek2-58-MsC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="280" y="306"/>
         </scene>
     </scenes>
 </document>
